@@ -1,5 +1,8 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+const progressBar = document.querySelector('.scroll-progress');
+const cursorGlow = document.querySelector('.cursor-glow');
+const cards = document.querySelectorAll('.project-card, .panel, .contact-card, .metric-card');
 
 if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
@@ -56,4 +59,47 @@ revealElements.forEach((element, index) => {
 const yearElement = document.getElementById('year');
 if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
+}
+
+const updateProgress = () => {
+    if (!progressBar) {
+        return;
+    }
+
+    const scrollTop = window.scrollY;
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = height > 0 ? (scrollTop / height) * 100 : 0;
+    progressBar.style.width = `${Math.min(Math.max(progress, 0), 100)}%`;
+};
+
+updateProgress();
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+    window.addEventListener('mousemove', (event) => {
+        cursorGlow.style.opacity = '1';
+        cursorGlow.style.transform = `translate(${event.clientX - 120}px, ${event.clientY - 120}px)`;
+    });
+
+    window.addEventListener('mouseleave', () => {
+        cursorGlow.style.opacity = '0';
+    });
+}
+
+if (window.matchMedia('(pointer: fine)').matches) {
+    cards.forEach((card) => {
+        card.addEventListener('mousemove', (event) => {
+            const rect = card.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const rotateX = ((y / rect.height) - 0.5) * -7;
+            const rotateY = ((x / rect.width) - 0.5) * 9;
+
+            card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
 }

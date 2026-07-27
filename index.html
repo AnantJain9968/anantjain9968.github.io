@@ -3,161 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anant Jain | Software Engineer & Freelancer</title>
+    <title>Anant Jain | Full-Stack Engineer</title>
+    <meta name="description" content="Portfolio of Anant Jain - Full-Stack Engineer focused on scalable backend systems, clean frontend experiences, and AI-powered automation.">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="page-bg"></div>
 
     <nav class="navbar">
-        <div class="logo">Anant Jain<span>.</span></div>
+        <a href="#home" class="logo">Anant Jain<span>.</span></a>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact" class="btn-nav">Hire Me</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="menu-toggle">
+        <a href="Anant_jain__cv.pdf" download class="btn-nav">Download Resume</a>
+        <button class="menu-toggle" aria-label="Toggle menu">
             <i class="fas fa-bars"></i>
-        </div>
+        </button>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <span class="greeting">Hello, I'm Anant</span>
-            <h1>Full-Stack Engineer & <br> <span class="highlight">Creative Freelancer</span></h1>
-            <p>I bridge the gap between complex backend systems and beautiful frontend experiences. Specialized in Java, AI integration, and Technical Content Writing.</p>
+    <header id="home" class="hero">
+        <div class="hero-content reveal">
+            <p class="eyebrow"><span class="dot"></span>Open to full-time and freelance opportunities</p>
+            <h1>Passionate engineer who loves to build reliable systems and meaningful digital experiences.</h1>
+            <p class="hero-copy">I am a full-stack engineer with enterprise experience in Java, Spring Boot, SQL, and automation. I design products that are fast, scalable, and cleanly shipped.</p>
             <div class="hero-btns">
-                <a href="#contact" class="btn-primary">Let's Work Together</a>
-                <a href="https://github.com/anantjain9968" target="_blank" class="btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                <a href="Anant_jain__cv.pdf" download class="btn-primary"><i class="fas fa-file-arrow-down"></i> Download Resume</a>
+                <a href="https://github.com/AnantJain9968" target="_blank" rel="noopener noreferrer" class="btn-secondary"><i class="fab fa-github"></i> View GitHub</a>
+            </div>
+            <div class="metrics">
+                <div class="metric-card reveal">
+                    <strong>5.6+ yrs</strong>
+                    <span>Industry Experience</span>
+                </div>
+                <div class="metric-card reveal">
+                    <strong>30%+</strong>
+                    <span>SQL Performance Gains</span>
+                </div>
+                <div class="metric-card reveal">
+                    <strong>10+</strong>
+                    <span>Major Systems Delivered</span>
+                </div>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="profile.jpg" alt="Anant Jain" onerror="this.src='https://via.placeholder.com/400x400?text=Anant+Jain'">
+    </header>
+
+    <section id="about" class="section">
+        <div class="section-head reveal">
+            <p class="kicker">About</p>
+            <h2>Engineer mindset, product taste, delivery focus.</h2>
+        </div>
+        <div class="about-grid">
+            <article class="panel reveal">
+                <h3>How I work</h3>
+                <p>I translate business requirements into maintainable systems, then optimize performance where it truly matters. I enjoy building with clear architecture, meaningful logs, and measurable outcomes.</p>
+            </article>
+            <article class="panel reveal">
+                <h3>What recruiters get</h3>
+                <p>Reliable execution, strong communication, and ownership from requirement breakdown to release. I can collaborate with product, QA, and DevOps while keeping engineering quality high.</p>
+            </article>
         </div>
     </section>
 
-    <section id="services" class="section">
-        <div class="container">
-            <h2 class="section-title">What I Can Do For You</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-server icon"></i>
-                    <h3>Backend Development</h3>
-                    <p>Scalable APIs using Java Spring Boot and Microservices. I build robust systems that handle high traffic (experienced with API Gateways & Load Balancers).</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-laptop-code icon"></i>
-                    <h3>Frontend & Web Design</h3>
-                    <p>Responsive, mobile-friendly websites using HTML, CSS, JavaScript, and Bootstrap. I turn ideas into clean, functional interfaces.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-robot icon"></i>
-                    <h3>AI & Automation</h3>
-                    <p>Python scripting for automation, data processing, and AI integration. I can help automate tedious workflows to save you time.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-pen-nib icon"></i>
-                    <h3>Technical Writing</h3>
-                    <p>High-quality tech blogs, documentation, and tutorials. I simplify complex technical concepts for your audience.</p>
-                </div>
-            </div>
+    <section id="skills" class="section alt-section">
+        <div class="section-head reveal">
+            <p class="kicker">Core Skills</p>
+            <h2>Stack built for enterprise scale.</h2>
+        </div>
+        <div class="skills-wrap reveal">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>Microservices</span>
+            <span>REST APIs</span>
+            <span>Angular</span>
+            <span>JavaScript</span>
+            <span>Oracle SQL</span>
+            <span>PL/SQL</span>
+            <span>Performance Tuning</span>
+            <span>Python Automation</span>
+            <span>GitHub Actions</span>
+            <span>Technical Writing</span>
         </div>
     </section>
 
-    <section id="portfolio" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-info">
-                        <h3>Travel Yaari</h3>
-                        <p>A fully responsive travel website featuring destination search and galleries.</p>
-                        <div class="tech-stack">
-                            <span>HTML/CSS</span>
-                            <span>Bootstrap</span>
-                        </div>
-                        <a href="#" class="btn-sm">View Demo</a>
-                    </div>
+    <section id="projects" class="section">
+        <div class="section-head reveal">
+            <p class="kicker">Projects</p>
+            <h2>Portfolio highlights and next-level build ideas.</h2>
+        </div>
+        <div class="project-grid">
+            <article class="project-card reveal">
+                <div class="project-tag">Delivered</div>
+                <h3>Bulk Request Processing Platform</h3>
+                <p>Enterprise platform for high-volume request handling with query optimization and auto-recovery workflows that improved team productivity.</p>
+                <div class="chip-row">
+                    <span>Java</span><span>PL/SQL</span><span>Quartz</span>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-info">
-                        <h3>Industry Reg. Portal</h3>
-                        <p>Full-stack app with Role-Based Access, Slot Booking, and Email Notifications.</p>
-                        <div class="tech-stack">
-                            <span>Spring Boot</span>
-                            <span>Angular</span>
-                            <span>REST APIs</span>
-                        </div>
-                        <a href="#" class="btn-sm">View Code</a>
-                    </div>
+            </article>
+            <article class="project-card reveal">
+                <div class="project-tag">Delivered</div>
+                <h3>Industry Registration Portal</h3>
+                <p>Role-based portal with slot booking and mail notifications, designed for smoother onboarding and operational visibility.</p>
+                <div class="chip-row">
+                    <span>Spring Boot</span><span>Angular</span><span>REST</span>
                 </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-info">
-                        <h3>Bulk Request Platform</h3>
-                        <p>Enterprise system processing bulk data, improving productivity by 20%.</p>
-                        <div class="tech-stack">
-                            <span>Java</span>
-                            <span>PL/SQL</span>
-                            <span>Performance Tuning</span>
-                        </div>
-                        <a href="#" class="btn-sm">View Case Study</a>
-                    </div>
+            </article>
+            <article class="project-card reveal">
+                <div class="project-tag">Concept + Build-Ready</div>
+                <h3>VoiceOps AI Support Copilot</h3>
+                <p>Real-time support dashboard that summarizes calls, suggests next actions, and drafts CRM notes using LLM workflows and retrieval.</p>
+                <div class="chip-row">
+                    <span>Python</span><span>FastAPI</span><span>LLM</span>
                 </div>
-            </div>
+            </article>
+            <article class="project-card reveal">
+                <div class="project-tag">Concept + Build-Ready</div>
+                <h3>CloudCost Radar</h3>
+                <p>Spend intelligence tool that detects anomalies across services, predicts monthly cost drift, and recommends concrete optimization actions.</p>
+                <div class="chip-row">
+                    <span>Node.js</span><span>PostgreSQL</span><span>Charts</span>
+                </div>
+            </article>
+            <article class="project-card reveal">
+                <div class="project-tag">Concept + Build-Ready</div>
+                <h3>FinShield Fraud Alert Engine</h3>
+                <p>Rules + ML hybrid engine that scores banking transactions and provides explainable alerts for operations teams.</p>
+                <div class="chip-row">
+                    <span>Java</span><span>Kafka</span><span>ML</span>
+                </div>
+            </article>
+            <article class="project-card reveal">
+                <div class="project-tag">Personal Brand</div>
+                <h3>Technical Writing Hub</h3>
+                <p>A curated series of engineering explainers and implementation guides designed to teach complex topics with practical depth.</p>
+                <div class="chip-row">
+                    <span>Docs</span><span>System Design</span><span>Tutorials</span>
+                </div>
+            </article>
         </div>
     </section>
 
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb 2022 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Application Software Engineer</h3>
-                        <h4>STMicroelectronics</h4>
-                        <p>Built a Bulk Request Processing Platform and Legacy Bridge. Optimized SQL queries and implemented Quartz Auto-Recovery systems.</p>
-                    </div>
+    <section id="experience" class="section alt-section">
+        <div class="section-head reveal">
+            <p class="kicker">Experience</p>
+            <h2>Professional journey with impact.</h2>
+        </div>
+        <div class="timeline">
+            <article class="timeline-item reveal">
+                <div class="timeline-date">Feb 2022 - Present</div>
+                <div class="timeline-content">
+                    <h3>Application Software Engineer</h3>
+                    <h4>STMicroelectronics</h4>
+                    <p>Built bulk request and legacy bridge systems, optimized SQL-heavy operations, and implemented Quartz-driven recovery for mission-critical workflows.</p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Oct 2020 - Feb 2022</div>
-                    <div class="timeline-content">
-                        <h3>Software Engineer</h3>
-                        <h4>Nagarro</h4>
-                        <p>Developed Loan Booking REST APIs for HDFC Bank. Automating DOM parsing and authoring Maven plugins.</p>
-                    </div>
+            </article>
+            <article class="timeline-item reveal">
+                <div class="timeline-date">Oct 2020 - Feb 2022</div>
+                <div class="timeline-content">
+                    <h3>Software Engineer</h3>
+                    <h4>Nagarro</h4>
+                    <p>Developed loan booking REST APIs for HDFC Bank, automated browser workflow operations, and created reusable tooling for faster delivery.</p>
                 </div>
-            </div>
+            </article>
         </div>
     </section>
 
     <section id="contact" class="section contact-section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-sub">Available for freelance projects and full-time opportunities.</p>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>anantjaing968@gmail.com</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <p>+91-79886 28615</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/anant-jain-078792122" target="_blank">LinkedIn Profile</a>
-                    </div>
+        <div class="section-head reveal">
+            <p class="kicker">Contact</p>
+            <h2>Let us build something strong together.</h2>
+        </div>
+        <div class="contact-grid">
+            <a class="contact-card reveal" href="mailto:anantjaing968@gmail.com">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Email</h3>
+                    <p>anantjaing968@gmail.com</p>
                 </div>
-            </div>
+            </a>
+            <a class="contact-card reveal" href="tel:+917988628615">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h3>Phone</h3>
+                    <p>+91 79886 28615</p>
+                </div>
+            </a>
+            <a class="contact-card reveal" href="https://www.linkedin.com/in/anant-jain-078792122" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+                <div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me</p>
+                </div>
+            </a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Anant Jain. Built for Performance.</p>
+        <p>&copy; <span id="year"></span> Anant Jain. Built with intent.</p>
     </footer>
 
     <script src="script.js"></script>

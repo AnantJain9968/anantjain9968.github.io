@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://anantjain9968.github.io/sitemap.xml

@@ -61,25 +61,35 @@ if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
 }
 
+let scrollTicking = false;
 const updateProgress = () => {
-    if (!progressBar) {
-        return;
-    }
-
+    if (!progressBar) return;
     const scrollTop = window.scrollY;
     const height = document.documentElement.scrollHeight - window.innerHeight;
     const progress = height > 0 ? (scrollTop / height) * 100 : 0;
     progressBar.style.width = `${Math.min(Math.max(progress, 0), 100)}%`;
+    scrollTicking = false;
 };
 
 updateProgress();
-window.addEventListener('scroll', updateProgress, { passive: true });
+window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+        scrollTicking = true;
+        requestAnimationFrame(updateProgress);
+    }
+}, { passive: true });
 
 if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
+    let glowRaf = false;
     window.addEventListener('mousemove', (event) => {
-        cursorGlow.style.opacity = '1';
-        cursorGlow.style.transform = `translate(${event.clientX - 120}px, ${event.clientY - 120}px)`;
-    });
+        if (glowRaf) return;
+        glowRaf = true;
+        requestAnimationFrame(() => {
+            cursorGlow.style.opacity = '1';
+            cursorGlow.style.transform = `translate(${event.clientX - 120}px, ${event.clientY - 120}px)`;
+            glowRaf = false;
+        });
+    }, { passive: true });
 
     window.addEventListener('mouseleave', () => {
         cursorGlow.style.opacity = '0';
@@ -88,15 +98,20 @@ if (cursorGlow && window.matchMedia('(pointer: fine)').matches) {
 
 if (window.matchMedia('(pointer: fine)').matches) {
     cards.forEach((card) => {
+        let cardRaf = false;
         card.addEventListener('mousemove', (event) => {
-            const rect = card.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            const rotateX = ((y / rect.height) - 0.5) * -7;
-            const rotateY = ((x / rect.width) - 0.5) * 9;
-
-            card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
-        });
+            if (cardRaf) return;
+            cardRaf = true;
+            requestAnimationFrame(() => {
+                const rect = card.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                const rotateX = ((y / rect.height) - 0.5) * -7;
+                const rotateY = ((x / rect.width) - 0.5) * 9;
+                card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+                cardRaf = false;
+            });
+        }, { passive: true });
 
         card.addEventListener('mouseleave', () => {
             card.style.transform = '';

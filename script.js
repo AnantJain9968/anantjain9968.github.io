@@ -53,7 +53,12 @@ const observer = new IntersectionObserver((entries) => {
 
 revealElements.forEach((element, index) => {
     element.style.transitionDelay = `${Math.min(index * 40, 260)}ms`;
-    observer.observe(element);
+});
+
+requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+        revealElements.forEach((el) => observer.observe(el));
+    });
 });
 
 const yearElement = document.getElementById('year');

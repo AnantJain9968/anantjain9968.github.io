@@ -2,7 +2,7 @@ const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 const progressBar = document.querySelector('.scroll-progress');
 const cursorGlow = document.querySelector('.cursor-glow');
-const cards = document.querySelectorAll('.project-card, .panel, .contact-card, .metric-card');
+const cards = document.querySelectorAll('.project-card, .panel, .contact-card, .metric-card, .seo-link-card');
 
 if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
@@ -111,15 +111,21 @@ if (window.matchMedia('(pointer: fine)').matches) {
                 const rect = card.getBoundingClientRect();
                 const x = event.clientX - rect.left;
                 const y = event.clientY - rect.top;
-                const rotateX = ((y / rect.height) - 0.5) * -7;
-                const rotateY = ((x / rect.width) - 0.5) * 9;
-                card.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+                const pctX = ((x / rect.width) * 100).toFixed(1);
+                const pctY = ((y / rect.height) * 100).toFixed(1);
+                const rotateX = ((y / rect.height) - 0.5) * -8;
+                const rotateY = ((x / rect.width) - 0.5) * 10;
+                card.style.setProperty('--mx', pctX + '%');
+                card.style.setProperty('--my', pctY + '%');
+                card.style.transform = `perspective(800px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) scale(1.02)`;
                 cardRaf = false;
             });
         }, { passive: true });
 
         card.addEventListener('mouseleave', () => {
             card.style.transform = '';
+            card.style.removeProperty('--mx');
+            card.style.removeProperty('--my');
         });
     });
 }

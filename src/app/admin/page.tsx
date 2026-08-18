@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function AdminPage(){return <section className="admin-shell"><div className="admin-card"><span className="eyebrow">Publishing</span><h1>Admin dashboard</h1><p>Next step: connect Supabase Auth and replace the demo data provider with the posts table. The dashboard will support drafts, categories, tags, series and publishing.</p><Link className="button primary" href="/admin/login">Go to login →</Link></div></section>}

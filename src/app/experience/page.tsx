@@ -1,0 +1,4 @@
+import type { Metadata } from 'next';
+export const metadata: Metadata = { title: 'Experience', description: 'Professional experience of Anant Jain.' };
+const roles = [{ company: 'STMicroelectronics', role: 'Application Software Engineer', period: '2022 — Present', detail: 'Enterprise Java systems, integrations, SQL optimization, bulk processing and reliability improvements.' }, { company: 'Nagarro', role: 'Software Engineer', period: '2020 — 2022', detail: 'Backend APIs, automation and enterprise application delivery.' }];
+export default function ExperiencePage() { return <section className="section container"><div className="section-title"><span>Experience</span><h1>Professional journey.</h1></div><div className="timeline">{roles.map((item) => <article className="timeline-item" key={item.company}><span>{item.period}</span><div><h2>{item.role}</h2><h3>{item.company}</h3><p>{item.detail}</p></div></article>)}</div></section>; }

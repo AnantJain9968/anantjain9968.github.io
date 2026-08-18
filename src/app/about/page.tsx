@@ -1,0 +1,3 @@
+import type { Metadata } from 'next';
+export const metadata: Metadata = { title: 'About', description: 'About Anant Jain, Java Backend Engineer.' };
+export default function AboutPage() { return <section className="section container narrow"><span className="eyebrow">About</span><h1>Backend engineer who likes understanding the system underneath the feature.</h1><p>I work primarily with Java and enterprise backend systems. I enjoy turning ambiguous requirements into maintainable APIs, data flows and reliable processing pipelines.</p><p>This site is my engineering notebook: a place to document system design, Java, Spring Boot, Kafka, databases, performance and lessons learned while building software.</p></section>; }

@@ -5,9 +5,9 @@ import SignOutButton from './SignOutButton';
 
 export default async function AdminPage() {
   const supabase = await createClient();
-  const { data: { claims } } = await supabase.auth.getClaims();
+  const { data } = await supabase.auth.getClaims();
 
-  if (!claims) {
+  if (!data?.claims) {
     redirect('/admin/login');
   }
 

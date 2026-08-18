@@ -1,10 +1,10 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
+import { FormEvent, Suspense, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
-export default function AdminLoginPage() {
+function AdminLoginForm() {
   const searchParams = useSearchParams();
   const next = searchParams.get('next') || '/admin';
   const [email, setEmail] = useState('');
@@ -30,38 +30,46 @@ export default function AdminLoginPage() {
   }
 
   return (
+    <div className="admin-card">
+      <span className="eyebrow">Private area</span>
+      <h1>Admin login</h1>
+      <p>Sign in with your Supabase account to access the publishing dashboard.</p>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email
+          <input
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            autoComplete="email"
+            required
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            autoComplete="current-password"
+            required
+          />
+        </label>
+        <button className="button primary" type="submit" disabled={loading}>
+          {loading ? 'Signing in…' : 'Sign in'}
+        </button>
+      </form>
+      {message && <small role="alert">{message}</small>}
+    </div>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
     <section className="admin-shell">
-      <div className="admin-card">
-        <span className="eyebrow">Private area</span>
-        <h1>Admin login</h1>
-        <p>Sign in with your Supabase account to access the publishing dashboard.</p>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Email
-            <input
-              type="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              autoComplete="email"
-              required
-            />
-          </label>
-          <label>
-            Password
-            <input
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              autoComplete="current-password"
-              required
-            />
-          </label>
-          <button className="button primary" type="submit" disabled={loading}>
-            {loading ? 'Signing in…' : 'Sign in'}
-          </button>
-        </form>
-        {message && <small role="alert">{message}</small>}
-      </div>
+      <Suspense fallback={<div className="admin-card"><p>Loading login…</p></div>}>
+        <AdminLoginForm />
+      </Suspense>
     </section>
   );
 }
